@@ -18,11 +18,11 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Co
 Write-Host "Disabling automatic Maps updates..."
 Set-ItemProperty -Path "HKLM:\SYSTEM\Maps" -Name "AutoUpdateEnabled" -Type DWord -Value 0
 
-Write-Host "Stopping and disabling Home Groups services..."
-Stop-Service "HomeGroupListener" -WarningAction SilentlyContinue
-Set-Service "HomeGroupListener" -StartupType Disabled
-Stop-Service "HomeGroupProvider" -WarningAction SilentlyContinue
-Set-Service "HomeGroupProvider" -StartupType Disabled
+# Write-Host "Stopping and disabling Home Groups services..."
+# Stop-Service "HomeGroupListener" -WarningAction SilentlyContinue
+# Set-Service "HomeGroupListener" -StartupType Disabled
+# Stop-Service "HomeGroupProvider" -WarningAction SilentlyContinue
+# Set-Service "HomeGroupProvider" -StartupType Disabled
 
 Write-Host "Removing AutoLogger file and restricting directory..."
 $autoLoggerDir = "$env:PROGRAMDATA\Microsoft\Diagnosis\ETLLogs\AutoLogger"
