@@ -16,17 +16,17 @@ Paste this command into Powershell (admin):
 
 ### Minimum
 ```
-iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/StooC/w10scripts/minimum.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/win10min'))
 ```
 
 ### Medium
 ```
-iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/StooC/w10scripts/medium.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/win10med'))
 ```
 
 ### Techincal User
 ```
-iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/StooC/w10scripts/techincal-user.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/win10tech'))
 ```
 
 ## How to Revert Changes

@@ -1,5 +1,4 @@
-Write-Host "Creating Restore Point incase something bad happens"
-$ResultText.text = "`r`n" + "`r`n" + "Installing Essential Tools... Please Wait" 
+Write-Host "Creating Restore Point incase something bad happens" 
 Enable-ComputerRestore -Drive "C:\"
 Checkpoint-Computer -Description "RestorePoint - Medium Optimise" -RestorePointType "MODIFY_SETTINGS"
 
@@ -33,7 +32,6 @@ If (Test-Path "$autoLoggerDir\AutoLogger-Diagtrack-Listener.etl") {
 icacls $autoLoggerDir /deny SYSTEM:`(OI`)`(CI`)F | Out-Null
 
 Write-Host "Disabling Bing Search in Start Menu..."
-$ResultText.text = "`r`n" + "`r`n" + "Disabling Search, Cortana, Start menu search... Please Wait"
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled" -Type DWord -Value 0
 
 Write-Host "Disabling Cortana..."
@@ -55,7 +53,6 @@ If (!(Test-Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search")) {
 }
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search" -Name "AllowCortana" -Type DWord -Value 0
 Write-Host "Disabled Cortana"
-$ResultText.text = "`r`n" +"`r`n" + "Disabled Cortana"
 
 
 $Bloatware = @(
@@ -154,8 +151,6 @@ foreach ($Bloat in $Bloatware) {
     Get-AppxPackage -Name $Bloat| Remove-AppxPackage
     Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like $Bloat | Remove-AppxProvisionedPackage -Online
     Write-Host "Trying to remove $Bloat."
-    $ResultText.text = "`r`n" +"`r`n" + "Trying to remove $Bloat."
 }
 
 Write-Host "Finished Removing Bloatware Apps"
-$ResultText.text = "`r`n" +"`r`n" + "Finished Removing Bloatware Apps"

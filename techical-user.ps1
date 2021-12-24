@@ -1,5 +1,4 @@
 Write-Host "Creating Restore Point incase something bad happens"
-$ResultText.text = "`r`n" + "`r`n" + "Installing Essential Tools... Please Wait" 
 Enable-ComputerRestore -Drive "C:\"
 Checkpoint-Computer -Description "RestorePoint - Tech User Optimise" -RestorePointType "MODIFY_SETTINGS"
 
@@ -30,5 +29,4 @@ If (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanc
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\People" -Name "PeopleBand" -Type DWord -Value 0
     
 Write-Host "Changing default Explorer view to This PC..."
-$ResultText.text += "`r`n" + "Quality of Life Tweaks"
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "LaunchTo" -Type DWord -Value 1
